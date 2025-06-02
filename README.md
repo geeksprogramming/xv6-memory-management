@@ -1,0 +1,3 @@
+# xv6 Memory Management
+
+This project modifies the xv6 operating system to change how memory is laid out for user processes. The main goal is to move the user stack to the top of the address space so that it can grow downwards, just like in Linux. This required changing how memory is set up when a program is loaded, especially in `exec.c`, and updating how the process keeps track of memory regions. On top of that, the project implements automatic stack growth—when a program accesses memory just below the current stack, the OS catches the page fault and maps a new page so the stack can grow. All changes are made to user space only; the kernel memory layout stays the same.
